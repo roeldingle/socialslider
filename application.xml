@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <application>
-    <langs use="kr" default="kr"></langs>
+    <langs support="en" default="en"></langs>
     <api use="off">
         <ifs>
         </ifs>
@@ -9,20 +9,7 @@
         <ifs>
             <if class="adminIndex" permission="off" desc="Sample Admin Interface"></if>
         </ifs>
-        <menes>
-        </menus>
-    </admin>
-<application>
-    <langs use="" default=""></langs>
-    <api use="off">
-        <ifs>
-        </ifs>
-    </api>
-    <admin use="on" index="adminIndex">
-        <ifs>
-            <if class="adminIndex" permission="off" desc="Sample Admin Interface"></if>
-        </ifs>
-        <menes>
+        <menus>
         </menus>
     </admin>
     <front use="on">
@@ -31,5 +18,4 @@
             </if>
         </ifs>
     </front>
-    <installation db="off" html="off"></installation>
 </application>
