@@ -11,12 +11,12 @@ class loader
      * @param String $sClassName 클레스 이름
      * @return Object 인스턴스
      */
-    final public static function getInstance($sClassName, $bIsSingleton=true)
+    final public static function getInstance($sClassName, $mParam = null, $bIsSingleton=true)
     {
         if(class_exists($sClassName) === false) return false;
 
         if(array_key_exists($sClassName, self::$_aInstance) === false || $bIsSingleton === false) {
-            self::$_aInstance[$sClassName] = new $sClassName();
+            self::$_aInstance[$sClassName] = new $sClassName($mParam);
         }
 
         return self::$_aInstance[$sClassName];

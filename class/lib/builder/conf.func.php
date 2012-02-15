@@ -13,16 +13,16 @@ function getClassNameRegexp($sString, $sRegxp='[A-Z][a-z]+')
 
 /**
  * alias - sysLibLoader get
- * 해당 클레스의 인스턴스를 가져 옵니다.
- * @param String $sClassName 클레스 이름
+ * You can call the instance of the class with this method, and it calls instance in the form of singleton
+ * @param String $sClassName The name of the class
  * @param Mix $mParams 초기화 데이터값
  * @param String $sClassPath 클레스 경로
  * @param Bool $bIsSingleton 싱글톤 사용여부
- * @return Object 인스턴스
+ * @return Object Instance
  */
 function getInstance($sClassName, $mParams=null, $sClassPath=null, $bIsSingleton=true)
 {
     $oInstance = loader::getInstance($sClassName, $mParams, $sClassPath, $bIsSingleton);
-    if($oInstance === false) error($sClassName . ' 클레스를 찾을 수 없습니다.');
+    if($oInstance === false) echo $sClassName . ' is not found';
     return $oInstance;
 }

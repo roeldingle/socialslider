@@ -1,34 +1,79 @@
 <?php
 class builderCore
 {
-    static $sModuleCode = null;
-
+    static $aAppInfo = array();
     private $_aBuilderUrlInfo = array();
+    private $_aArgs = array();
+    private $_oController;
 
     /**
      * Initiate the library
      * @param string $sAppId App ID
      * @param array $aArgs Argument Array
      */
-    public function init($sAppId, $aArgs)
+    public function init($oController, $aArgs)
     {
-        $this->_setModuleCode($sAppId);
+        $this->_setAppInfo($oController, $aArgs);
+
+        $this->_aArgs = $aArgs;
+
         $this->_aBuilderUrlInfo = $aArgs['usbuilder']['url_info'];
         $this->_aBuilderUrlInfo['front']['url'] = '/';
         $this->_aBuilderUrlInfo['front']['param'] = array('module' => '|Modulecode||Pageexec||Name|');
 
-        $sInitScript = $this->_getInitScript($aArgs);
-        return $sInitScript;
+        $aModuleInfo = $this->getAppInfo();
+        if ($aModuleInfo['class_type'] == 'admin' || $aModuleInfo['class_type'] == 'front') $oController->writeJS($this->_getInitJS());
+        if ($aModuleInfo['class_type'] == 'admin' && $aModuleInfo['exec_type'] == 'page') $oController->writeCSS($this->_getInitCSS());
     }
 
-    private function _setModuleCode($sModuleCode)
+    public function getController()
     {
-        self::$sModuleCode = ucfirst($sModuleCode);
+        return $this->_oController;
     }
 
-    public function getModuleCode()
+    public function getAppInfo($sKey = null)
     {
-        return self::$sModuleCode;
+        if ($sKey) {
+            return self::$aAppInfo[$sKey];
+        } else {
+            return self::$aAppInfo;
+        }
+    }
+
+    private function _setAppInfo($oController, $aArgs)
+    {
+        if ($oController instanceof Controller_Admin) {
+            $aAppInfo = array(
+                'class_type' => 'admin',
+                'exec_type' => 'page'
+            );
+        } elseif ($oController instanceof Controller_AdminExec) {
+            $aAppInfo = array(
+                'class_type' => 'admin',
+                'exec_type' => 'exec'
+            );
+        } elseif ($oController instanceof Controller_Front) {
+            $aAppInfo = array(
+                'class_type' => 'front',
+                'exec_type' => 'page',
+            	'seq' => $oController->getSequence()
+            );
+        } elseif ($oController instanceof Controller_FrontExec) {
+            $aAppInfo = array(
+                'class_type' => 'front',
+                'exec_type' => 'exec'
+            );
+        } elseif ($oController instanceof Controller_Api) {
+            $aAppInfo = array(
+                'class_type' => 'api'
+            );
+        }
+
+        $aAppInfo['app_id'] = ucfirst(APP_ID);
+        if (!$aAppInfo['seq']) $aAppInfo['seq'] = $aArgs['seq'];
+
+        $this->_oController = $oController;
+        self::$aAppInfo = $aAppInfo;
     }
 
     /**
@@ -47,7 +92,8 @@ class builderCore
             }
         }
         $sFormAction .= "$('form[name=\"$sFormName\"]').attr('action', '" . $aUrlInfo['url'] . "');";
-        return $sFormAction;
+
+        $this->getController()->writeJs($sFormAction);
     }
 
     private function _getSpecifiedUrl($sClassName)
@@ -79,8 +125,8 @@ class builderCore
         }
         $sName = implode('', $aInfo[0]);
 
-        $sText = str_replace('|modulecode|', strtolower($this->getModuleCode()), $sText);
-        $sText = str_replace('|Modulecode|', ucfirst($this->getModuleCode()), $sText);
+        $sText = str_replace('|modulecode|', strtolower(APP_ID), $sText);
+        $sText = str_replace('|Modulecode|', ucfirst(APP_ID), $sText);
         $sText = str_replace('|pageexec|', strtolower($sPageExec), $sText);
         $sText = str_replace('|Pageexec|', ucfirst($sPageExec), $sText);
         $sText = str_replace('|name|', strtolower($sName), $sText);
@@ -89,26 +135,27 @@ class builderCore
     }
 
     /**
-     * This returns the redirect script
-     * @param string $sReplaceUrl
-     * @return string the redirect script
+     * Move to the redirect url
+     * @param string $sRedirectUrl
      */
-    public function jsMove($sReplaceUrl)
+    public function jsMove($sRedirectUrl)
     {
-        return "location.href = '$sReplaceUrl';";
+        $this->getController()->writeJs("location.href = '$sRedirectUrl';");
     }
 
     /**
      * Returns the url from the class name
      * @param string $sClassName the class name
+     * @param string $mSeq true(default) | false(non-sequence) | number
      * @return string the Url
      */
-    public function getUrl($sClassName)
+    public function getUrl($sClassName, $mSeq = true)
     {
         $aUrlInfo = $this->_getSpecifiedUrl($sClassName);
+        $aAppInfo = $this->getAppInfo();
         $sUrl = $aUrlInfo['url'];
         $i = 0;
-        if (is_array($aUrlInfo['param'])) {
+        if (is_array($aUrlInfo['param']) && count($aUrlInfo['param']) > 0) {
             foreach($aUrlInfo['param'] as $key => $val) {
                 if ($i == 0) {
                     $sGlue = '?';
@@ -118,6 +165,14 @@ class builderCore
                 $sUrl .= $sGlue . $key . '=' . $val;
                 ++$i;
             }
+            $sGlue = '&';
+        } else {
+            $sGlue = '?';
+        }
+        if ($mSeq == true) {
+            if ($aAppInfo['seq']) $sUrl .= $sGlue . 'seq=' . $aAppInfo['seq'];
+        } elseif ((int)$mSeq > 0 && is_int((int)$mSeq)) {
+            $sUrl .= $sGlue . 'seq=' . $mSeq;
         }
         return $sUrl;
     }
@@ -134,14 +189,14 @@ class builderCore
 
     /**
      * Set a message, then it'll be displayed after the reload
-     * @param string $sResultMessage Messages
-     * @param string $sResultType success | warning
+     * @param string $sMessage Messages
+     * @param string $sType success | warning
      */
-    public function message($sResultMessage, $sResultType)
+    public function message($sMessage, $sType = 'success')
     {
-        $aMessage['result_message'] = $sResultMessage;
-        $aMessage['result_type'] = $sResultType;
-        $_SESSION['usbuilder']['function']['message'][] = $aMessage;
+        $aMessage['message'] = $sMessage;
+        $aMessage['type'] = $sType;
+        $_SESSION['usbuilder']['function']['message'] = $aMessage;
     }
 
     /**
@@ -174,19 +229,28 @@ class builderCore
      */
     public function pagination($iCount, $iRows)
     {
-        $sReplaceKey = '{$usbuilder_pagination}';
-        $_SESSION['usbuilder']['pagination']['count'] = $iCount;
-        $_SESSION['usbuilder']['pagination']['rows'] = $iRows;
-        $_SESSION['usbuilder']['pagination']['replace_key'] = $sReplaceKey;
-        return $sReplaceKey;
+        $oPagination = $this->helper(__FUNCTION__);
+
+        $iPage = (empty($this->_aArgs['page'])) ? 1 : $this->_aArgs['page'];
+
+        $oPagination->prepare($iPage, $iRows, $iCount);
+        $sPagination = $oPagination->buildForUS();
+
+        return $sPagination;
     }
 
-    private function _getInitScript($aArgs)
+    private function _getInitJS()
     {
-        $sInitScript = "
-            var usbuilder = {
-            		sModuleCode : '" . $this->getModuleCode() . "',
-            		_aBuilderUrlInfo : {
+        $aAppInfo = $this->getAppInfo();
+
+        $sPath = APP_PATH . '/class/lib/builder/resource/uipack/sdk_popup.js';
+        $sInitScript .= file_get_contents($sPath);
+        $sPath = APP_PATH . '/class/lib/builder/resource/uipack/sdk_message.js';
+        $sInitScript .= file_get_contents($sPath);
+        $sPath = APP_PATH . '/class/lib/builder/resource/js/sdk_common.js';
+        $sInitScript .= file_get_contents($sPath);
+        $sInitScript .= "
+            aBuilderUrlInfo = {
             			'admin' : {
             				'url' : '" . $this->_aBuilderUrlInfo['admin']['url'] . "',
             				'param' : $.parseJSON('" . json_encode($this->_aBuilderUrlInfo['admin']['param']) . "')
@@ -199,101 +263,86 @@ class builderCore
             				'url' : '" . $this->_aBuilderUrlInfo['api']['url'] . "',
             				'param' : '" . $this->_aBuilderUrlInfo['api']['param'] . "'
             			}
-            		},
-                    _replaceAllInfo: function(sClassName, sText) {
-                        aInfo = sClassName.match(/[A-Z][a-z]+/gm);
-                        pattAdmin = /^admin/;
-                        pattApi = /^api/;
-                        sPageExec = '';
-                        if (pattAdmin.test(sClassName)) {
-                            sPageExec = aInfo[0];
-                            delete aInfo[0];
-                        }
-                        sName = aInfo.join('');
-
-                        sText = sText.replace('|modulecode|', this.sModuleCode.toLowerCase());
-                        sText = sText.replace('|Modulecode|', this._ucfirst(this.sModuleCode));
-                        sText = sText.replace('|pageexec|', sPageExec.toLowerCase());
-                        sText = sText.replace('|Pageexec|', this._ucfirst(sPageExec));
-                        sText = sText.replace('|name|', sName.toLowerCase());
-                        sText = sText.replace('|Name|', this._ucfirst(sName));
-                        return sText;
-                    },
-            		_getSpecifiedUrl : function(sClassName) {
-                        pattAdmin = /^admin/;
-                        pattFront = /^front/;
-                        pattApi = /^api/;
-            			if (pattAdmin.test(sClassName)) {
-                            aUrlInfo = this._aBuilderUrlInfo['admin'];
-                        } else if (pattFront.test(sClassName)) {
-                            aUrlInfo = this._aBuilderUrlInfo['front'];
-                        } else if (pattApi.test(sClassName)) {
-                            aUrlInfo = this._aBuilderUrlInfo['api'];
-                        }
-                        var aNewUrlInfo = {
-                        	'url' : null,
-                        	'param' : new Array()
-						};
-                        aNewUrlInfo['url'] = this._replaceAllInfo(sClassName, aUrlInfo['url']);
-                        if (this._is_array(aUrlInfo['param'])) {
-                            for (var key in aUrlInfo['param']) {
-                                sNewKey = this._replaceAllInfo(sClassName, key);
-                                sNewVal = this._replaceAllInfo(sClassName, aUrlInfo['param'][key]);
-                                aNewUrlInfo['param'][sNewKey] = sNewVal;
-                            }
-                        }
-                        return aNewUrlInfo;
-            		},
-            		getUrl : function(sClassName) {
-                        aUrlInfo = this._getSpecifiedUrl(sClassName);
-                        sUrl = aUrlInfo['url'];
-                        i = 0;
-                        if (this._is_array(aUrlInfo['param'])) {
-                            for (var key in aUrlInfo['param']) {
-                                if (i == 0) {
-                                    sGlue = '?';
-                                } else {
-                                    sGlue = '&';
-                                }
-                                sUrl += sGlue + key + '=' + aUrlInfo['param'][key];
-                                ++i;
-                            }
-                        }
-                        return sUrl;
-            		},
-            		_ucfirst : function(sText) {
-            			first = sText.charAt(0);
-            			rest = sText.substring(1,sText.length);
-            			first = first.toUpperCase();
-            			sText = first.concat(rest);
-
-            			return sText;
-            		},
-            		_is_array : function(input) {
-            			return typeof(input)=='object'||(input instanceof Array);
-            		}
-            };
+    		}
+    		aAppInfo = $.parseJSON('" . json_encode($aAppInfo) . "')
+            usbuilder._setAppInfo(aAppInfo);
+            usbuilder._setBuilderUrlInfo(aBuilderUrlInfo);
         ";
+
+        //Message Test
+        $aMessage = $_SESSION['usbuilder']['function']['message'];
+        if(is_array($aMessage)){
+            $sInitScript .= "sdk_message.show('" . $aMessage['message'] . "','" . $aMessage['type'] . "')";
+            unset($_SESSION['usbuilder']['function']['message']);
+        }
 
         return $sInitScript;
     }
 
-    function getConf($aArgs)
+    public function setBuilderSession($sKey, $mData)
     {
-        $oDOMDocument = new DOMDocument();
+        $_SESSION['usbuilder']['function'][$sKey] = $mData;
+    }
 
-        if (isset($aArgs['xml'])) {
-            $oDOMDocument->load(APP_PATH . '/conf/' . 'conf.' . $aArgs['xml'] .'.xml');
-        } elseif (isset($aArgs['lang'])) {
+    private function _getInitCSS()
+    {
+        $sPath = APP_PATH . '/class/lib/builder/resource/css/sdk_common.css';
+        $sInitCss .= file_get_contents($sPath);
+
+        return $sInitCss;
+    }
+
+    public function apiExecute($aArgs)
+    {
+        if ($aArgs['mode'] == 'conf') {
+            $oDOMDocument = new DOMDocument();
+            if (isset($aArgs['xml'])) {
+                $oDOMDocument->load(APP_PATH . '/conf/' . 'conf.' . $aArgs['xml'] .'.xml');
+            }
+            $sXML = $oDOMDocument->saveXML();
+            return $sXML;
+        } elseif ($aArgs['mode'] == 'lang') {
+            $oDOMDocument = new DOMDocument();
             if (isset($aArgs['filename'])) {
                 $oDOMDocument->load(APP_PATH . '/resource/lang/' . $aArgs['lang'] . '/' . $aArgs['filename'] .'.xml');
-
             } else {
                 $oDOMDocument->load(APP_PATH . '/resource/lang/' . $aArgs['lang'] . '/common.xml');
             }
+            $sXML = $oDOMDocument->saveXML();
+            return $sXML;
+        } elseif ($aArgs['mode'] == 'helper') {
+            return usbuilder()->helper($aArgs['helpername'])->api($aArgs);
         }
-        $sXML = $oDOMDocument->saveXML();
+    }
 
-        return $sXML;
+    public function helper($sHelperName)
+    {
+        require_once('builder/helper/' . $sHelperName .'/helper' . ucfirst($sHelperName) . 'Handler.php');
+        $oHelper = getInstance('helper' . ucfirst($sHelperName) . 'Handler');
+        return $oHelper;
+    }
+
+    /**
+     * 반환값의 참 거짓을 따져서 반환
+     * @param $mData 임의의 반환값
+     */
+    public function checkResult($mData)
+    {
+        if (is_null($mData)) {
+            $mResult = $mData;
+        } else if(is_array($mData)) {
+            if (count($mData) == 0) {
+                $mResult = true;
+            } else {
+                $mResult = $mData;
+            }
+        } else if(is_int($mData)) {
+            $mResult = true;
+        } else if($mData===true) {
+            $mResult = true;
+        } else {
+            $mResult = false;
+        }
+        return $mResult;
     }
 }

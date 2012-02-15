@@ -11,7 +11,8 @@ function usbuilder()
 }
 
 /**
- * @return The object of common class defined in 'class/Common.php'
+ * return The object of common class defined in 'class/Common.php'
+ * @return common
  */
 function common()
 {
