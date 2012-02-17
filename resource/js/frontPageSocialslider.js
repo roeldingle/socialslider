@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+	
 	frontPageSocialslider.follow();
 	
 	
@@ -9,7 +9,7 @@ $(document).ready(function(){
       btnNext: ".next",
        btnPrev: ".prev",
 	      vertical: true,
-		  visible: 4
+		  visible: parseInt($("#socialslider_icon_visible").val())
 	});	
 	
 	/*hide button*/
@@ -58,7 +58,7 @@ var frontPageSocialslider ={
 		var current_top = parseInt($("#socialslider_wrap").css("top"));
 		$("#socialslider_wrap").fadeIn(speed);
 		
-		floatingMenu.add('socialslider_wrap', {targetLeft: 10,  targetTop: 10});  
+		floatingMenu.add('socialslider_wrap', {targetLeft: 10,  targetTop: 50});  
 	},
 	
 	/*float the main div for the linkers*/

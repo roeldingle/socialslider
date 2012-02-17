@@ -163,7 +163,7 @@ var sdk_popup = {
         if(this.opts.drag_header && jQuery.ui) {
             var dragOpts = {
                 cursor: "move",
-                handle: "#"+popup.opts.drag_header,
+                handle: "#"+sdk_popup.opts.drag_header,
                 start : this.dragStart,
                 stop : this.dragEnd,
                 containment: "#wrap",
