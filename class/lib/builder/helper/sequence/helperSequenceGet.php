@@ -27,7 +27,7 @@ class helperSequenceGet extends helperSequenceCommon
         $sHtmlHeadRows = $this->getHtmlHeadRows();
         $sHtmlBodyRows = $this->getHtmlBodyRows();
 
-        $sAddButtonClass = (strlen($this->_aOption['module_name'])<8) ? 'btn_width_st2' : 'btn_width_st3';
+        $sAddButtonClass = (strlen($this->_aOption['module_name'])<8) ? 'sdk_btn_width_st2' : 'sdk_btn_width_st3';
 
         $this->_assign('sHtmlColRows', $sHtmlColRows);
         $this->_assign('sHtmlHeadRows', $sHtmlHeadRows);
@@ -94,7 +94,7 @@ class helperSequenceGet extends helperSequenceCommon
         $sSettingLink = 'ExtensionPageSetting';
         $sLabelLink = usbuilder()->getUrl($this->_aOption['default_class']);
         $sDateTimeFormat = 'm/d/Y';
-        $sModuleCode = 'Simplesample';
+        $sModuleCode = ucfirst(APP_ID);
         if(count($this->_aSequenceList)) {
         for ($i = 0; $i < count($this->_aSequenceList); ++$i) {
             $sHtmlRows .= '<tr class="event_mouse_over ' . $this->_aSequenceList[$i]['class_last'] . '">

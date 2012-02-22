@@ -48,10 +48,11 @@ class modelExec extends Model{
 		return $sWhere;
 	}
 	
-	public function deleteData($iTable){
+public function deleteData($iTable,$sWhere){
 		$this->init();
 		$sTable = $this->chooseTable($iTable);
-		$bDeleted = $this->query("DELETE FROM ".$sTable);
+		$sWhere = $this->setWhere($sWhere);
+		$bDeleted = $this->query("DELETE FROM ".$sTable." ".$sWhere);
 		$bResult = isset($bDeleted)?true:false;
 		return $bResult;
 	}

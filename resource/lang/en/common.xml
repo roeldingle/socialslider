@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <lang>
-    <var name="l.lang">Language</var>
-    <var name="l.name">English</var>
+    <menu>  
+        <var name="socialslider">Socialslider</var>
+    </menu>
+    <var name="lang">subject</var>
+    <var name="name">Subject</var>
 </lang>

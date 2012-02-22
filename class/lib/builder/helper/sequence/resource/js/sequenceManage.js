@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     $('.chk_all').change(function() {
         var bChecked = $('.chk_all').prop('checked');
         if (bChecked) {
@@ -11,14 +10,13 @@ $(document).ready(function() {
 
     $('#seq_btn_delete').click(function() {
         if (sequenceManage.CheckboxCount()) {
-            popup.load('layer_02').skin('admin').layer({
+            sdk_popup.load('layer_02').skin('admin').layer({
                 'title' : $L.get("title", "delete") + sequenceManage.moduleName,
                 'width': '252'
             });
             sequenceManage.actionButton();
         } else {
-            oValidator.setDefaultMessageType('message');
-            oValidator.generalPurpose.getMessage(false, $L.get("failure", "delete"));
+            sdk_message.show('Please make a selection from the list.', 'warning');
         }
         return false;
     });
@@ -104,7 +102,7 @@ var sequenceManage = {
     },
     /** 시퀀스 추가 레이어팝업 호출 **/
     mostAction : function() {
-        popup.load('layer_01').skin('admin').layer({
+        sdk_popup.load('layer_01').skin('admin').layer({
             'title' : $L.get("title", "add") + this.moduleName,
             'width': '252',
             'closeCallback' : function(){
@@ -117,7 +115,7 @@ var sequenceManage = {
     }
     ,/** DB에 접근하는 동작 버튼 **/
     actionButton : function() {
-        $('.btn_ly').click(function() {
+        $('.sdk_btn_ly').click(function() {
             if (!sequenceManage.isRunning) {
                 sequenceManage.isRunning = true;
                 var sElementId = $(this).attr('id');
