@@ -91,6 +91,15 @@ public function deleteData($iTable,$sWhere){
 		return $sData = "(".substr($sField,0,(strlen($sField)-1)).") VALUES (".substr($sValue,0,(strlen($sValue)-1)).")";
 	}
 	
+	
+	function deleteContentsBySeq($aSeq)
+	{
+		$sSeqs = implode(',', $aSeq);
+		$sQuery = "Delete from socialslider_settings where seq in($sSeqs)";
+		$mResult = $this->query($sQuery);
+		return $mResult;
+	}
+	
 
 	
 		
