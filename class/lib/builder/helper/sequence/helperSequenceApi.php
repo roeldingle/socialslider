@@ -3,7 +3,6 @@ class helperSequenceApi extends helperSequenceCommon
 {
     function run($aArgs)
     {
-            $_SESSION['aaaaaaa'] = 'bbbbbbbbbb';
         if ($aArgs['action'] == 'add') {
             $mResult = $this->set()->insert($aArgs['label'], $aArgs['seq']);
             if ($mResult) {
@@ -19,6 +18,10 @@ class helperSequenceApi extends helperSequenceCommon
             } else {
                 usbuilder()->message('Delete failed', 'warning');
             }
+        } elseif ($aArgs['action'] == 'create_table') {
+            $mResult = usbuilder()->checkResult($this->set()->createTable());
+        } elseif ($aArgs['action'] == 'drop_table') {
+            $mResult = usbuilder()->checkResult($this->set()->dropTable());
         }
         return $mResult;
     }

@@ -32,4 +32,9 @@ class helperSequenceHandler
         require_once('builder/helper/sequence/helperSequenceApi.php');
         return getInstance('helperSequenceApi')->run($aArgs);
     }
+
+    function isSequence()
+    {
+        return is_file(APP_PATH . '/conf/conf.admin.seqmenu.xml');
+    }
 }

@@ -269,10 +269,10 @@ class builderCore
             usbuilder._setBuilderUrlInfo(aBuilderUrlInfo);
         ";
 
-        //Message Test
+        //Message Print
         $aMessage = $_SESSION['usbuilder']['function']['message'];
         if(is_array($aMessage)){
-            $sInitScript .= "sdk_message.show('" . $aMessage['message'] . "','" . $aMessage['type'] . "')";
+            $sInitScript .= "sdk_message.show('" . $aMessage['message'] . "','" . $aMessage['type'] . "');";
             unset($_SESSION['usbuilder']['function']['message']);
         }
 
@@ -312,7 +312,24 @@ class builderCore
             return $sXML;
         } elseif ($aArgs['mode'] == 'helper') {
             return usbuilder()->helper($aArgs['helpername'])->api($aArgs);
+        } elseif ($aArgs['mode'] == 'install') {
+            $sPath = APP_PATH . '/install/install.sql';
+            $sQuery .= file_get_contents($sPath);
+            $mResult = $this->checkResult($this->_query($sQuery));
+            return $mResult;
+        } elseif ($aArgs['mode'] == 'uninstall') {
+            $sPath = APP_PATH . '/install/uninstall.sql';
+            $sQuery .= file_get_contents($sPath);
+            $mResult = $this->checkResult($this->_query($sQuery));
+            return $mResult;
         }
+    }
+
+    private function _query($sQuery)
+    {
+        require_once('builder/builderModel.php');
+        $oModel = getInstance('builderModel');
+        return $oModel->executeQuery($sQuery);
     }
 
     public function helper($sHelperName)

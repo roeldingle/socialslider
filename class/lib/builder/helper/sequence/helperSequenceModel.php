@@ -1,15 +1,15 @@
 <?php
-class modelSequence extends Model
+class helperSequenceModel extends Model
 {
     private $_sTableName;
 
     function modelInit()
     {
         $this->_sTableName = strtolower(APP_ID) . '_sequence';
-        $this->_createTable();
+        //$this->createTable();
     }
 
-    private function _createTable()
+    function createTable()
     {
         $sQuery = "
             CREATE TABLE IF NOT EXISTS `" . $this->_sTableName . "` (
@@ -19,6 +19,14 @@ class modelSequence extends Model
               `register_date` int(10) unsigned NOT NULL COMMENT 'registered date',
               PRIMARY KEY (`idx`)
             );
+        ";
+        return $this->query($sQuery);
+    }
+
+    function dropTable()
+    {
+        $sQuery = "
+            DROP TABLE IF EXISTS `" . $this->_sTableName . "`;
         ";
         return $this->query($sQuery);
     }

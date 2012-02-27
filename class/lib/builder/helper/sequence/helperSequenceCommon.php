@@ -3,8 +3,8 @@ class helperSequenceCommon extends helperSequenceHandler
 {
     function modelSequence()
     {
-        require_once('builder/helper/sequence/model/modelSequence.php');
-        $oModel = new modelSequence();
+        require_once('builder/helper/sequence/helperSequenceModel.php');
+        $oModel = new helperSequenceModel();
         $oModel->modelInit();
         return $oModel;
     }

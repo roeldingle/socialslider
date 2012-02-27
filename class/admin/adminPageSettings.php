@@ -4,8 +4,7 @@ class adminPageSettings extends Controller_Admin
 
 	protected $oGet;
 
-    protected function run($aArgs)
-    {
+    protected function run($aArgs){
 
     require_once('builder/builderInterface.php');
 	usbuilder()->init($this, $aArgs);
@@ -13,7 +12,6 @@ class adminPageSettings extends Controller_Admin
  	/*assign objects*/
     $this->oGet = new modelGet;
     
-
 	$this->display($aArgs);
 
     }
@@ -29,6 +27,10 @@ class adminPageSettings extends Controller_Admin
     	
     	/*save form validator*/
     	usbuilder()->validator(array('form' => 'socialslider_form'));
+    	
+    	/*assign url*/
+    	$sUrl = usbuilder()->getUrl('adminPageSettings');
+    	$this->assign("sUrl",$sUrl);
     	
     	/*sequence*/
     	$iSeq = $aArgs['seq'];
@@ -87,18 +89,13 @@ class adminPageSettings extends Controller_Admin
     	
     	}
     	
-    	/*assign url*/
-    	$sUrl = usbuilder()->getUrl('adminPageSettings');
-    	$this->assign("sUrl",$sUrl);
-    	
+    	/*assign the icons*/
  		$aIconsDb = json_decode($aUserSetting['icons'],true);
     	
     	/*assign settings*/
     	$this->assign("aUserSetting",$aUserSetting);
     	$this->assign("aIcons",$aIconsDb);
     	
-    	
-
     	/*set the template*/
     	$this->view(__CLASS__);
 

@@ -12,6 +12,7 @@ class apiExec extends Controller_Api
         
     /*sequence*/
 		$iSeq = $aArgs['get_seq'];
+		
 	
 		$oExec = new modelExec;
 		$oGet = new modelGet;

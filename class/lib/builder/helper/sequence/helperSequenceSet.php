@@ -18,6 +18,7 @@ class helperSequenceSet extends helperSequenceCommon
      */
     public function delete($aSeq)
     {
+        $aModuleInfo['mode'] = 'delete';
         $aModuleInfo['seq'] = $aSeq;
 
         require_once('install/installSequenceDelete.php');
@@ -25,11 +26,8 @@ class helperSequenceSet extends helperSequenceCommon
         $mResult = $oInstallSequenceDelete->run($aModuleInfo);
         //$mResult = helper()->install($aModuleInfo)->deleteSequence();
         //$mResult = $mResult && $this->_deleteRelatedAddon($sModuleCode, $aSeq);
-        $aModuleInfo['mode'] = 'delete';
-        $aModuleInfo['seq'] = $aSeq;
 
         usbuilder()->setBuilderSession('admin_menu', $aModuleInfo);
-
         $mResult = $mResult && $this->modelSequence()->deleteBySeq($aSeq);
 
         return $mResult;
@@ -46,8 +44,7 @@ class helperSequenceSet extends helperSequenceCommon
     {
         $sModuleCode = $this->_aModuleInfo['module_code'];
         if (is_null($iNextSequenceNo)) $iNextSequenceNo = $this->_getNextSequenceNo();
-        //if ($this->isSequence($iNextSequenceNo)) return false;
-        if (!$sModuleLabel) $sModuleLabel = "New " . ucfirst(APP_ID) . $iNextSequenceNo;
+        if (!$sModuleLabel) $sModuleLabel = "New " . ucfirst(APP_ID) . " " . $iNextSequenceNo;
 
         $aData = array(
             'label' => $sModuleLabel,
@@ -62,6 +59,7 @@ class helperSequenceSet extends helperSequenceCommon
         $mResult = $this->modelSequence()->insert($aData);
 
         usbuilder()->setBuilderSession('admin_menu', $aModuleInfo);
+
         //$mResult = $mResult && $this->_insertRelatedAddon($sModuleCode, $sModuleLabel, $iNextSequenceNo);
         require_once('install/installSequenceCreate.php');
         $oInstallSequenceCreate = getInstance('installSequenceCreate');
@@ -99,11 +97,10 @@ class helperSequenceSet extends helperSequenceCommon
      */
     final public function isSequence($iSeq = null)
     {
-        $sModuleCode = $this->_aModuleInfo['module_code'];
-        $sModuleCode = ucfirst($sModuleCode);
+        $sModuleCode = ucfirst($this->_aModuleInfo['module_code']);
 
         if ($iSeq != null && is_integer((int)$iSeq)) {
-            $mTemp = $this->modelSequence()->getSeqenceInformation($sModuleCode, $iSeq);
+            //$mTemp = $this->modelSequence()->getSeqenceInformation($sModuleCode, $iSeq);
             if (count($mTemp)) {
                 return is_array($mTemp);
             } else {
@@ -225,14 +222,6 @@ class helperSequenceSet extends helperSequenceCommon
     }
 
     /**
-     * @return addonSequenceModelSelf
-     */
-    final private function _getSelfModel()
-    {
-        return _m('addonSequenceModelSelf', getConf('FW.database'));
-    }
-
-    /**
      * 해당 Conf 파일을 가지고 있는지 반환(가지고 있으면 true, 가지고 있지 않으면 false)
      * @param string $sFileName 파일명(prefix와 확장자 제외)
      * @param string $sModuleCode 모듈코드
@@ -247,5 +236,15 @@ class helperSequenceSet extends helperSequenceCommon
 
         $sXMLFilePath = getModuleConfPath(ucwords($sModuleCode), 'conf.' . $sFileName . '.xml', $sSubDir, 'Service');
         return is_file($sXMLFilePath);
+    }
+
+    function createTable()
+    {
+        return $this->modelSequence()->createTable();
+    }
+
+    function dropTable()
+    {
+        return $this->modelSequence()->dropTable();
     }
 }
