@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<adminmenus>
-    <menu lang="menu_contents" param="SocialsliderPageSettings" >
-    	<page lang="menu_contents" param="SocialsliderPageSettings"  />
-    </menu>
-</adminmenus>

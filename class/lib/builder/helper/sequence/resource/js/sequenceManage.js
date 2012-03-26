@@ -51,6 +51,7 @@ var sequenceManage = {
                     'mode' : 'helper',
                     'helpername' : 'sequence',
                     'action' : 'add',
+                    'message' : 'true',
                     'label' : module_label
                 }),
                 success : function () {
@@ -77,7 +78,7 @@ var sequenceManage = {
             var options = {
                 url : '/_sdk/api/'+usbuilder.getAppInfo('app_id')+'/builderLib',
                 type : 'get',
-                data : 'mode=helper&helpername=sequence&action=delete&seq='+aSeq,
+                data : 'mode=helper&helpername=sequence&action=delete&message=true&seq='+aSeq,
                 success : function () {
                     location.reload();
                 }

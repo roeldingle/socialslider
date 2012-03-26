@@ -1,7 +1,7 @@
 @charset "utf-8";
-#socialslider_wrap_con{width:100%;position:relative;}
+.socialslider_wrap_con{width:100%;position:relative;}
 
-#socialslider_wrap{
+.socialslider_wrap{
 position:absolute;
 left:0px;
 display:none;
@@ -13,7 +13,6 @@ position:absolute;
 .socialslider ul li:hover{background:url(/_sdk/img/socialslider/trans_light.png);}
 
 .socialslider_expand a{text-decoration:none;}
-
 .socialslider ul {padding:0;margin:5px 0 0}
 .socialslider ul li {list-style:none;padding:0;margin:0 0 5px}
 .socialslider {position:relative;padding:10px 5px 10px 0;border:1px solid #cbcfce;display:inline-block}
@@ -28,7 +27,7 @@ position:absolute;
 .socialslider_right_expand a{text-decoration:none;}
 .socialslider_right ul {padding:0;margin:5px 0 0}
 .socialslider_right ul li {list-style:none;padding:0;margin:0 0 5px}
-.socialslider_right {position:relative;width:auto;padding:10px 5px 10px 0;border:1px solid #cbcfce;display:inline-block}
+.socialslider_right {position:relative;width:auto;padding:10px 0 10px 5px;border:1px solid #cbcfce;display:inline-block}
 .socialslider_right_container {width:auto;padding:3px 0 0 0;background:url(../_sdk/img/socialslider/border_right.gif) left top no-repeat;display:inline-block}
 .socialslider_right_expand {width:auto;padding:0 10px 3px 5px;background:url(../_sdk/img/socialslider/border_right.gif) left bottom no-repeat;display:inline-block}
 .socialslider_right_expand .socialslider_slide {margin:5px 0 0;display:inline-block}
@@ -43,10 +42,8 @@ position:absolute;
 
 
 .socialslider_expand .socialslider_slide {margin:5px 0 0;display:inline-block}
-
 .socialslider_expand .small_icon .socialslider_name {float:left;width:100px;margin-top:1px;font:11px Verdana, Arial, Sans-serif;color:#666;text-align:center;display:inline-block}
 .socialslider_expand .big_icon .socialslider_name {float:left;width:100px;margin-top:7px;font:11px Verdana, Arial, Sans-serif;color:#666;text-align:center;display:inline-block}
-
 .socialslider .btn_prev {position:absolute;top:0;width:100%;text-align:center;}
 .socialslider .btn_next {position:absolute;bottom:0;width:100%;text-align:center}
 .socialslider a.prev {width:15px;height:15px;background:url(../_sdk/img/socialslider/up2.png) left top no-repeat;display:inline-block}

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <lang>
-    <menu>  
-        <var name="socialslider">Socialslider</var>
-    </menu>
+    <var name="menu_contents">Socialslider</var>
     <var name="lang">subject</var>
     <var name="name">Subject</var>
 </lang>

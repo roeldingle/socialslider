@@ -1,7 +1,6 @@
 <?php
 class helperSequenceGet extends helperSequenceCommon
 {
-    private $_aFetchData;
     private $_aOption;
     private $_aAddedColumnInfo;
     private $_aSequenceList;
@@ -29,16 +28,16 @@ class helperSequenceGet extends helperSequenceCommon
 
         $sAddButtonClass = (strlen($this->_aOption['module_name'])<8) ? 'sdk_btn_width_st2' : 'sdk_btn_width_st3';
 
-        $this->_assign('sHtmlColRows', $sHtmlColRows);
-        $this->_assign('sHtmlHeadRows', $sHtmlHeadRows);
-        $this->_assign('sHtmlBodyRows', $sHtmlBodyRows);
-        $this->_assign('sAddButtonClass', $sAddButtonClass);
-        $this->_assign('iColspan', $iColSpan);
-        $this->_assign('sModuleName', $this->_aOption['module_name']);
+        $this->assign('sHtmlColRows', $sHtmlColRows);
+        $this->assign('sHtmlHeadRows', $sHtmlHeadRows);
+        $this->assign('sHtmlBodyRows', $sHtmlBodyRows);
+        $this->assign('sAddButtonClass', $sAddButtonClass);
+        $this->assign('iColspan', $iColSpan);
+        $this->assign('sModuleName', $this->_aOption['module_name']);
 
         $sJs .= "sequenceManage.setModuleInfo('" . $this->_aOption['module_name'] . "');";
 
-        $sTpl = $this->_fetchAssignedData($sTpl);
+        $sTpl = $this->fetchAssignedData($sTpl);
 
         usbuilder()->getController()->writeJS($sJs);
 
@@ -184,20 +183,5 @@ class helperSequenceGet extends helperSequenceCommon
             'width' => $aColumnInfo['width'],
             'moduleParam' => $aColumnInfo['moduleParam']
         );
-    }
-
-    function _assign($sKey, $mData)
-    {
-        $this->_aFetchData[$sKey] = $mData;
-    }
-
-    function _fetchAssignedData($sTpl)
-    {
-        if (is_array($this->_aFetchData)) {
-            foreach($this->_aFetchData as $key => $val) {
-                $sTpl = str_replace('{$' . $key . '}', $val, $sTpl);
-            }
-        }
-        return $sTpl;
     }
 }

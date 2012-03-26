@@ -96,7 +96,6 @@ var adminPageSettings = {
 		setting_submit: function(form){
 			
 			/*gather variables*/
-			var iSeq = $("#SEQ").val();
 			var aIconData = adminPageSettings.get_icons();
 			var bValid = aIconData['valid'];
 			
@@ -116,7 +115,6 @@ var adminPageSettings = {
 						dataType: 'json',
 						data: {
 						action: 'setting_submit',
-						get_seq: iSeq,
 						get_position: position,
 						get_title: title,
 						get_size: size,

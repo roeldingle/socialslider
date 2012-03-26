@@ -1,5 +1,5 @@
 <?php
-class helperSequenceHandler
+class helperSequenceHandler extends builderHelper
 {
     function __construct()
     {

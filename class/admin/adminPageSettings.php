@@ -32,12 +32,9 @@ class adminPageSettings extends Controller_Admin
     	$sUrl = usbuilder()->getUrl('adminPageSettings');
     	$this->assign("sUrl",$sUrl);
     	
-    	/*sequence*/
-    	$iSeq = $aArgs['seq'];
-    	$this->assign('iSeq', $iSeq);
     	
     	/*set the user setting*/
-    	$aUserSetting = $this->oGet->getRow(2,"seq =".$iSeq);
+    	$aUserSetting = $this->oGet->getRow(2,null);
     	
     	/*set default values*/
     	if(empty($aUserSetting) || isset($aArgs['socialslider_reset'])){
@@ -95,6 +92,7 @@ class adminPageSettings extends Controller_Admin
     	/*assign settings*/
     	$this->assign("aUserSetting",$aUserSetting);
     	$this->assign("aIcons",$aIconsDb);
+    	
     	
     	/*set the template*/
     	$this->view(__CLASS__);

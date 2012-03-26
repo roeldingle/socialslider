@@ -35,7 +35,7 @@ class frontPageSocialslider extends Controller_Front{
     	$this->importCSS(__CLASS__);
 		
 		/*set the user setting*/
-    	$aUserSetting = $this->oGet->getRow(2,"seq =".$this->getSequence());
+    	$aUserSetting = $this->oGet->getRow(2,null);
     	
     	/*set default values*/
     	if(empty($aUserSetting) || isset($aArgs['reset'])){
@@ -130,19 +130,19 @@ class frontPageSocialslider extends Controller_Front{
 			$bPosition = "";
 		}
 		
-    	
 		/*html assign*/
     	$sHTML_socialslider = '';
-    	$sHTML_socialslider .= '<div id="'.$APP_NAME.'_wrap_con" >';
-    	$sHTML_socialslider .= '<div id="'.$APP_NAME.'_wrap" >';
+    	$sHTML_socialslider .= '<div class="'.$APP_NAME.'_wrap_con" >';
+    	$sHTML_socialslider .= '<div class="'.$APP_NAME.'_wrap" >';
 			$sHTML_socialslider .= '<div class="'.$APP_NAME.$bPosition.'">';
 				$sHTML_socialslider .= '<div class="'.$APP_NAME.$bPosition.'_container">';
-					$sHTML_socialslider .= '<div id="'.$APP_NAME.'_expand" class="'.$APP_NAME.$bPosition.'_expand">';
+					$sHTML_socialslider .= '<div class="'.$APP_NAME.$bPosition.'_expand">';
 						$sHTML_socialslider .= '<div class="'.$APP_NAME.'_slide">';
 						
 							/*ul here*/
 							$sHTML_socialslider .= '<ul class="'.$sIcon_type_class.'">';
-								/*loop the icons*/
+							
+							/*loop the icons*/
 							foreach($sIcons as $key => $val){
 								
 								if($val['checked'] == 1){
@@ -161,9 +161,7 @@ class frontPageSocialslider extends Controller_Front{
 								
 							}
 				
-				
 							$sHTML_socialslider .= '</ul>';
-							
 						$sHTML_socialslider .= '</div>';
 					$sHTML_socialslider .= '</div>';
 				$sHTML_socialslider .= '</div>';
@@ -172,16 +170,17 @@ class frontPageSocialslider extends Controller_Front{
 				$sHTML_socialslider .= '<div class="btn_next"><a href="#" class="next"></a></div>';
 				
 				/*hidden*/
-				$sHTML_socialslider .= '<input type="hidden" id="'.$APP_NAME.'_icon_position" value="'.$sIcon_position.'" />';
-				$sHTML_socialslider .= '<input type="hidden" id="'.$APP_NAME.'_icon_visible" value="'.$iIcon_visible.'" />';
-				$sHTML_socialslider .= '<input type="hidden" id="'.$APP_NAME.'_icon_title" value="'.$bIcon_title.'" />';
+				$sHTML_socialslider .= '<input type="hidden" class="'.$APP_NAME.'_icon_position" value="'.$sIcon_position.'" />';
+				$sHTML_socialslider .= '<input type="hidden" class="'.$APP_NAME.'_icon_visible" value="'.$iIcon_visible.'" />';
+				$sHTML_socialslider .= '<input type="hidden" class="'.$APP_NAME.'_icon_title" value="'.$bIcon_title.'" />';
 				
 			$sHTML_socialslider .= '</div>';
 		$sHTML_socialslider .= '</div>';
 		$sHTML_socialslider .= '</div>';
     	
     	
-	$this->assign(ucwords($APP_NAME),$sHTML_socialslider);
+	$this->assign("display",$sHTML_socialslider);
+
     }
     
 }

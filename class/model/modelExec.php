@@ -47,8 +47,56 @@ class modelExec extends Model{
 		}
 		return $sWhere;
 	}
+	/*process aData*/
+	public function processArrayData($aData){
+		if($aData){
+			$sField = "";
+			$sValue = "";
+			foreach($aData as $field => $value)
+			{
+				$sField .= "`".$field."`,";
+				$sValue .= "'".$value."',";
+			}
+		}else{
+			$sData = "";
+		}
+		return $sData = "(".substr($sField,0,(strlen($sField)-1)).") VALUES (".substr($sValue,0,(strlen($sValue)-1)).")";
+	}
 	
-public function deleteData($iTable,$sWhere){
+	/*process aData for update*/
+	public function processAData($aData){
+		if($aData){
+			foreach($aData as $field => $value)
+			{
+				$sData .= "".$field."=";
+				$sData .= "'".$value."',";
+			}
+		}else{
+			$sData = "";
+		}
+		return $sData = substr($sData,0,(strlen($sData)-1));
+	}
+	/*
+	 desc: update datas
+	@param $iTable = ex.(1=PG_MAIN || 2=PG_SETTING || 3=PG_CONTENT);
+	@param $aData = ex.(array(field_name => 'samplefieldname',field_name2 => 'samplefieldname2',...));
+	return $bResult = true if the query is executed else false
+	*/
+	public function updateData($iTable,$aData,$sWhere){
+		$this->init();
+		$sTable = $this->chooseTable($iTable);
+		$sData = $this->processAData($aData);
+		$sWhere = $this->setWhere($sWhere);
+	
+		$sSql = "UPDATE ".$sTable." SET ".$sData." ".$sWhere;
+		$bUpdated = $this->query($sSql);
+	
+		$bResult = isset($bUpdated)?true:false;
+		return $bResult;
+	}
+	
+	/*delete data*/
+   public function deleteData($iTable,$sWhere){
 		$this->init();
 		$sTable = $this->chooseTable($iTable);
 		$sWhere = $this->setWhere($sWhere);
@@ -73,26 +121,8 @@ public function deleteData($iTable,$sWhere){
 		return $bResult;
 	}
 	
-	
-	
-	
-	public function processArrayData($aData){
-		if($aData){
-			$sField = "";
-			$sValue = "";
-			foreach($aData as $field => $value)
-			{
-				$sField .= "`".$field."`,";
-				$sValue .= "'".$value."',";
-			}
-		}else{
-			$sData = "";
-		}
-		return $sData = "(".substr($sField,0,(strlen($sField)-1)).") VALUES (".substr($sValue,0,(strlen($sValue)-1)).")";
-	}
-	
-	
-	function deleteContentsBySeq($iTable,$aSeq)
+	/*delete seq datas*/
+	public function deleteContentsBySeq($iTable,$aSeq)
 	{
 		$this->init();
 		$sTable = $this->chooseTable($iTable);
@@ -101,9 +131,5 @@ public function deleteData($iTable,$sWhere){
 		$mResult = $this->query($sQuery);
 		return $mResult;
 	}
-	
 
-	
-		
-	
 }

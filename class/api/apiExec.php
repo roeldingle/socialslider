@@ -8,10 +8,7 @@ class apiExec extends Controller_Api
 
         require_once('builder/builderInterface.php');
 		usbuilder()->init($this, $aArgs);
-        
-        
-    /*sequence*/
-		$iSeq = $aArgs['get_seq'];
+   
 		
 	
 		$oExec = new modelExec;
@@ -19,8 +16,7 @@ class apiExec extends Controller_Api
       
 	#data to insert
 	$aData = array(
-			'idx' => '',
-			'seq' => $iSeq,
+		'idx' => '',
 		'position' => $aArgs['get_position'],
 		'title' => $aArgs['get_title'],
     	'size' => $aArgs['get_size'],
@@ -29,23 +25,20 @@ class apiExec extends Controller_Api
 		'icons' => json_encode($aArgs['get_icon'])
 		);
 	
-     $bSeqExist = $oGet->getRow(2,"seq =".$iSeq);
-     
-     if(empty($bSeqExist)){
-     	$aResult = $oExec->insertData(2,$aData);
-     }else{
-        $dDeleted = $oExec->deleteData(2,"seq =".$iSeq);
-        if($dDeleted === true){
-        	$aData['idx'] = $bSeqExist['idx'];
-        	$aResult = $oExec->insertData(2,$aData);
-        }else{
-        	$aResult = "false";
-        }
-     } 
+    
+     $aCheckRow = $oGet->getRow(2,null);
+     $aResult = (empty($aCheckRow))?$oExec->insertData(2,$aData):$oExec->updateData(2,$aData,"idx = '".$aCheckRow['idx']."'");
      
      return $aResult;
       
     }
+    
+    /*
+     * $aCheckRow =  $this->oGet->getRow(2,"pts_pm_idx = '".$aUserInfo['pm_idx']."'");
+	$aResult = (empty($aCheckRow))?$this->oExec->insertData(2,$aData):$this->oExec->updateData(2,$aData,"pts_pm_idx = '".$aUserInfo['pm_idx']."'");
+     * 
+     * 
+     * */
     
   
 }

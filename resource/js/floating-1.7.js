@@ -4,9 +4,9 @@
  */
 var floatingMenu =
 {
-    hasInner: typeof(window.innerWidth) == 'number',
-    hasElement: typeof(document.documentElement) == 'object'
-        && typeof(document.documentElement.clientWidth) == 'number'
+    hasInner: typeof(window.innerWidth) == "number",
+    hasElement: typeof(document.documentElement) == "object"
+        && typeof(document.documentElement.clientWidth) == "number"
 };
 
 var floatingArray =
@@ -69,36 +69,38 @@ floatingMenu.add = function(obj, options)
 floatingMenu.findSingle = function(item)
 {
     if (item.id)
-        item.menu = document.getElementById(item.id);
+       // item.menu = document.getElementById(item.id);
+    	item.menu = $("."+item.id).get(0);
 
     if (item.scrollContainerId)
-        item.scrollContainer = document.getElementById(item.scrollContainerId);
+       // item.scrollContainer = document.getElementById(item.scrollContainerId);
+    	item.scrollContainer = $("."+item.id).get(0);
 };
 
 floatingMenu.move = function (item)
 {
     if (!item.prohibitXMovement)
     {
-        item.menu.style.left = item.nextX + 'px';
-        item.menu.style.right = '';
+        item.menu.style.left = item.nextX + "px";
+        item.menu.style.right = "";
     }
 
     if (!item.prohibitYMovement)
     {
-        item.menu.style.top = item.nextY + 'px';
-        item.menu.style.bottom = '';
+        item.menu.style.top = item.nextY + "px";
+        item.menu.style.bottom = "";
     }
 };
 
 floatingMenu.scrollLeft = function(item)
 {
-    // If floating within scrollable container use it's scrollLeft
+    // If floating within scrollable container use its scrollLeft
     if (item.scrollContainer)
         return item.scrollContainer.scrollLeft;
 
     var w = window;
 
-    // Find top window scroll parameters if we're IFRAMEd
+    // Find top window scroll parameters if were IFRAMEd
     while (w != w.parent)
         w = w.parent;
 
@@ -111,13 +113,13 @@ floatingMenu.scrollLeft = function(item)
 
 floatingMenu.scrollTop = function(item)
 {
-    // If floating within scrollable container use it's scrollTop
+    // If floating within scrollable container use its scrollTop
     if (item.scrollContainer)
         return item.scrollContainer.scrollTop;
 
     var w = window;
 
-    // Find top window scroll parameters if we're IFRAMEd
+    // Find top window scroll parameters if were IFRAMEd
     while (w != w.parent)
         w = w.parent;
 
@@ -302,7 +304,7 @@ floatingMenu.offsets = function(obj, item)
     if (window == window.parent)
         return result;
 
-    // we're IFRAMEd
+    // were IFRAMEd
     var iframes = window.parent.document.body.getElementsByTagName("IFRAME");
     for (var i = 0; i < iframes.length; i++)
     {
@@ -372,7 +374,7 @@ floatingMenu.doFloat = function()
         this.fixTarget(floatingArray[i]);
         this.doFloatSingle(floatingArray[i]);
     }
-    setTimeout('floatingMenu.doFloat()', 20);
+    setTimeout("floatingMenu.doFloat()", 20);
 };
 
 floatingMenu.insertEvent = function(element, event, handler)
@@ -384,7 +386,7 @@ floatingMenu.insertEvent = function(element, event, handler)
         return;
     }
 
-    var listener = 'on' + event;
+    var listener = "on" + event;
 
     // MS
     if (element.attachEvent != undefined)
@@ -414,7 +416,7 @@ floatingMenu.init = function()
         floatingMenu.initSingleMenu(floatingArray[i]);
     }
 
-    setTimeout('floatingMenu.doFloat()', 100);
+    setTimeout("floatingMenu.doFloat()", 100);
 };
 
 // Some browsers init scrollbars only after
@@ -429,11 +431,11 @@ floatingMenu.initSingleMenu = function(item)
     this.move(item);
 };
 
-floatingMenu.insertEvent(window, 'load', floatingMenu.init);
+floatingMenu.insertEvent(window, "load", floatingMenu.init);
 
 
 // Register ourselves as jQuery plugin if jQuery is present
-if (typeof(jQuery) !== 'undefined')
+if (typeof(jQuery) !== "undefined")
 {
     (function ($)
     {

@@ -26,3 +26,12 @@ function getInstance($sClassName, $mParams=null, $sClassPath=null, $bIsSingleton
     if($oInstance === false) echo $sClassName . ' is not found';
     return $oInstance;
 }
+
+function file_get_existing_contents($sPath)
+{
+    if (file_exists($sPath)) {
+        return file_get_contents($sPath);
+    } else {
+        return null;
+    }
+}

@@ -2,6 +2,7 @@
 class builderCore
 {
     static $aAppInfo = array();
+    static private $_aAssignForJsData;
     private $_aBuilderUrlInfo = array();
     private $_aArgs = array();
     private $_oController;
@@ -56,7 +57,9 @@ class builderCore
             $aAppInfo = array(
                 'class_type' => 'front',
                 'exec_type' => 'page',
-            	'seq' => $oController->getSequence()
+            	'seq' => $oController->getSequence(),
+                'block' => strtolower(str_replace('frontPage', '', get_class($oController))),
+            	'group' => $oController->getOption('block_group')
             );
         } elseif ($oController instanceof Controller_FrontExec) {
             $aAppInfo = array(
@@ -69,6 +72,7 @@ class builderCore
             );
         }
 
+        $aAppInfo['lang_code'] = $oController->getLangCode();
         $aAppInfo['app_id'] = ucfirst(APP_ID);
         if (!$aAppInfo['seq']) $aAppInfo['seq'] = $aArgs['seq'];
 
@@ -177,6 +181,53 @@ class builderCore
         return $sUrl;
     }
 
+    public function getParam($sKey)
+    {
+        $sResultKey = $this->getParamKey($sKey);
+        return $this->_aArgs[$sResultKey];
+    }
+
+    public function getParamKey($sKey = null)
+    {
+        $aAppInfo = $this->getAppInfo();
+        if ($aAppInfo['class_type'] == 'front') {
+            if ($aAppInfo['seq']) {
+                $sResultKey = strtolower(APP_ID) . '_' . $aAppInfo['seq'];
+                $iGroup = $this->getController()->getOption("block_group");
+                if($iGroup) $sResultKey .= "_".$iGroup;
+                $sResultKey .= ':' . $sKey;
+            } else {
+                $sResultKey = strtolower(APP_ID) . ':' . $sKey;
+            }
+        } else {
+            $sResultKey = $sKey;
+        }
+
+        return $sResultKey;
+    }
+
+    /**
+     * 프론트용 module query
+     * @param Array $aOverwriteInfo 직접 지정할 정보
+     */
+    public function getModuleSelector($aOverwriteInfo = array())
+    {
+        $aInfo = $this->getAppInfo();
+        foreach($aOverwriteInfo as $sKey => $oValue) {
+            $aInfo[$sKey] = $oValue;
+        }
+        $iGroup = $aOverwriteInfo["group"];
+        if(empty($iGroup)) $iGroup = $aInfo["group"];
+
+        $sQuery = strtolower($aInfo["app_id"]);
+        if($aInfo["seq"]) $sQuery .= ">".$aInfo["seq"];
+        if($aInfo["block"]) $sQuery .= ">".strtolower($aInfo["block"]);
+        if($iGroup) $sQuery .= "[".$iGroup."]";
+        else $sQuery .= "[^]";
+
+        return $sQuery;
+    }
+
     public function vd($mData, $sKey = null)
     {
         $_SESSION['usbuilder']['vd']['show'] = true;
@@ -249,6 +300,8 @@ class builderCore
         $sInitScript .= file_get_contents($sPath);
         $sPath = APP_PATH . '/class/lib/builder/resource/js/sdk_common.js';
         $sInitScript .= file_get_contents($sPath);
+        $sPath = APP_PATH . '/class/lib/builder/resource/js/sdk_multi.js';
+        $sInitScript .= file_get_contents($sPath);
         $sInitScript .= "
             aBuilderUrlInfo = {
             			'admin' : {
@@ -263,18 +316,22 @@ class builderCore
             				'url' : '" . $this->_aBuilderUrlInfo['api']['url'] . "',
             				'param' : '" . $this->_aBuilderUrlInfo['api']['param'] . "'
             			}
-    		}
-    		aAppInfo = $.parseJSON('" . json_encode($aAppInfo) . "')
+    		};
+
+            aAppInfo = $.parseJSON('" . json_encode($aAppInfo) . "');
             usbuilder._setAppInfo(aAppInfo);
             usbuilder._setBuilderUrlInfo(aBuilderUrlInfo);
         ";
 
+        /**
+         *
         //Message Print
         $aMessage = $_SESSION['usbuilder']['function']['message'];
         if(is_array($aMessage)){
             $sInitScript .= "sdk_message.show('" . $aMessage['message'] . "','" . $aMessage['type'] . "');";
             unset($_SESSION['usbuilder']['function']['message']);
         }
+         */
 
         return $sInitScript;
     }
@@ -296,33 +353,41 @@ class builderCore
     {
         if ($aArgs['mode'] == 'conf') {
             $oDOMDocument = new DOMDocument();
-            if (isset($aArgs['xml'])) {
-                $oDOMDocument->load(APP_PATH . '/conf/' . 'conf.' . $aArgs['xml'] .'.xml');
-            }
-            $sXML = $oDOMDocument->saveXML();
-            return $sXML;
-        } elseif ($aArgs['mode'] == 'lang') {
-            $oDOMDocument = new DOMDocument();
-            if (isset($aArgs['filename'])) {
-                $oDOMDocument->load(APP_PATH . '/resource/lang/' . $aArgs['lang'] . '/' . $aArgs['filename'] .'.xml');
+            $sPath = APP_PATH . '/conf/' . 'conf.' . $aArgs['xml'] .'.xml';
+            if (file_exists($sPath)) {
+                $oDOMDocument->load($sPath);
+                $mResult = $oDOMDocument->saveXML();
             } else {
-                $oDOMDocument->load(APP_PATH . '/resource/lang/' . $aArgs['lang'] . '/common.xml');
+                $mResult = false;
             }
-            $sXML = $oDOMDocument->saveXML();
-            return $sXML;
+        } elseif ($aArgs['mode'] == 'lang') {
+            if (!$aArgs['lang']) $aArgs['lang'] = $this->getAppInfo('lang_code');
+            $oDOMDocument = new DOMDocument();
+            if (!empty($aArgs['name'])) {
+                $sPath = APP_PATH . '/resource/lang/' . $aArgs['lang'] . '/' . $aArgs['name'] .'.xml';
+            } else {
+                $sPath = APP_PATH . '/resource/lang/' . $aArgs['lang'] . '/common.xml';
+            }
+            if (file_exists($sPath)) {
+                $oDOMDocument->load($sPath);
+                $mResult = $oDOMDocument->saveXML();
+            } else {
+                $mResult = false;
+            }
         } elseif ($aArgs['mode'] == 'helper') {
-            return usbuilder()->helper($aArgs['helpername'])->api($aArgs);
+            $mResult = usbuilder()->helper($aArgs['helpername'])->api($aArgs);
         } elseif ($aArgs['mode'] == 'install') {
             $sPath = APP_PATH . '/install/install.sql';
             $sQuery .= file_get_contents($sPath);
-            $mResult = $this->checkResult($this->_query($sQuery));
-            return $mResult;
+            $aResult = $this->Dump($sQuery);
+            $mResult = $aResult['Result'];
         } elseif ($aArgs['mode'] == 'uninstall') {
             $sPath = APP_PATH . '/install/uninstall.sql';
             $sQuery .= file_get_contents($sPath);
-            $mResult = $this->checkResult($this->_query($sQuery));
-            return $mResult;
+            $aResult = $this->Dump($sQuery);
+            $mResult = $aResult['Result'];
         }
+        return $mResult;
     }
 
     private function _query($sQuery)
@@ -334,6 +399,7 @@ class builderCore
 
     public function helper($sHelperName)
     {
+        require_once('builder/builderHelper.php');
         require_once('builder/helper/' . $sHelperName .'/helper' . ucfirst($sHelperName) . 'Handler.php');
         $oHelper = getInstance('helper' . ucfirst($sHelperName) . 'Handler');
         return $oHelper;
@@ -361,5 +427,42 @@ class builderCore
             $mResult = false;
         }
         return $mResult;
+    }
+
+    public function Dump($sSqlDump)
+    {
+        $sSqlDump = trim($sSqlDump);
+        if (strpos($sSqlDump, ";\r\n")>0 || strpos($sSqlDump, ";\n")>0) {
+            if (strpos($sSqlDump, ";\r\n")>0) {
+                $aSqlDump = explode(";\r\n", $sSqlDump);
+            } else if (strpos($sSqlDump, ";\n")>0) {
+                $aSqlDump = explode(";\n", $sSqlDump);
+            }
+        } else {
+            $aSqlDump = array($sSqlDump);
+        }
+
+        $aSqlResult = array();
+        $aSqlResult['Result'] = false;
+        $aSqlResult['Query'] = array();
+
+        $bResult = true;
+
+        foreach ($aSqlDump as $sSql) {
+            if ($sSql) {
+                $mResult = $this->_query($sSql);
+
+                if ($mResult!==false) {
+                    $aSqlResult['Query'][] = array(true, $sSql, '');
+                } else {
+                    $aSqlResult['Query'][] = array(false, $sSql, mysql_error($this->RES));
+                    $bResult = false;
+                }
+            }
+        }
+
+        $aSqlResult['Result'] = $bResult;
+
+        return $aSqlResult;
     }
 }

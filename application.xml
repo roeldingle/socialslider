@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <application>
     <langs support="en" default="en"></langs>
-    <api use="off">
+    <api use="on">
         <ifs>
+            <if class="apiBuilderLib" permission="off" desc="Api for the builder library"></if>
+            <if class="apiExec" permission="off" desc="Api for processing data"></if>
         </ifs>
     </api>
-    <admin use="on" index="adminIndex">
+    <admin use="on" index="adminPageSettings">
         <ifs>
-            <if class="adminIndex" permission="off" desc="Sample Admin Interface"></if>
+            <if class="adminPageManage" permission="off" desc="Sequence mange page"></if>
+            <if class="adminPageSettings" permission="off" desc="Settings page"></if>
         </ifs>
         <menus>
         </menus>
     </admin>
     <front use="on">
         <ifs>
-            <if class="frontSample" permission="off" code-assist="off" desc="Sample Front Interface">
-            </if>
+            <if class="frontPageSocialSlider" permission="off" code-assist="on" desc="for displaying the app in front"></if>
         </ifs>
     </front>
 </application>

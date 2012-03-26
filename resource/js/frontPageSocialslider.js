@@ -11,7 +11,7 @@ $(document).ready(function(){
       btnNext: ".next",
        btnPrev: ".prev",
 	      vertical: true,
-		  visible: parseInt($("#socialslider_icon_visible").val())
+		  visible: parseInt($(".socialslider_icon_visible").val())
 	});	
 	
 	/*hide button*/
@@ -34,11 +34,11 @@ var frontPageSocialslider ={
 		
 	/*give defined width *solve IE7 issue*/
 	def_width: function(sUrl,sType){
-		var bTitle = $("#socialslider_icon_title").val();
+		var bTitle = $(".socialslider_icon_title").val();
 		if(bTitle == 1){
-			$("#socialslider_wrap").css("width",180);
+			$(".socialslider_wrap").css("width",180);
 		}else{
-			$("#socialslider_wrap").css("width",80);
+			$(".socialslider_wrap").css("width",80);
 		}
 	},
 	
@@ -68,9 +68,9 @@ var frontPageSocialslider ={
 	follow: function(){
 		/*show the div*/
 		var speed = 1500;
-		var current_top = parseInt($("#socialslider_wrap").css("top"));
-		var position = $("#socialslider_icon_position").val();
-		$("#socialslider_wrap").fadeIn(speed);
+		var current_top = parseInt($(".socialslider_wrap").css("top"));
+		var position = $(".socialslider_icon_position").val();
+		$(".socialslider_wrap").fadeIn(speed);
 		
 		if(position == "left"){
 			floatingMenu.add('socialslider_wrap', {targetLeft: 10,  targetTop: 50});  
@@ -84,13 +84,13 @@ var frontPageSocialslider ={
 	manual_follow: function(){
 		/*show the div*/
 		var speed = 2000;
-		var current_top = parseInt($("#socialslider_wrap").css("top"));
-		$("#socialslider_wrap").fadeIn(speed);
+		var current_top = parseInt($(".socialslider_wrap").css("top"));
+		$(".socialslider_wrap").fadeIn(speed);
 		
 		/*follow on scroll dowm*/
 		$(window).scroll(function(){
 			var top = $(window).scrollTop();
-			$("#socialslider_wrap").css("top",top + current_top);
+			$(".socialslider_wrap").css("top",top + current_top);
 		});
 	
 	}

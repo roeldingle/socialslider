@@ -5,11 +5,7 @@
 
 <!-- hidden values -->
 <input type="hidden"  id="APP_NAME" value="<?php echo $APP_NAME;?>" />
-<input type="hidden" id="SEQ" value="<?php echo $iSeq;?>" /><!--seq-->
 
-
-
-	
 <form name="<?php echo $APP_NAME;?>_form"   method="POST">                                             
 	
 <!-- basic settings -->
@@ -128,7 +124,7 @@
 
 </form>
 <!--form for reset-->
-<form method="POST" action="<?php echo $sUrl;?>" name="<?php echo $APP_NAME;?>_form_reset" id="<?php echo $APP_NAME;?>_form_reset" ><input type="hidden" name="<?php echo $APP_NAME;?>_reset" value="true" /></form>
+<form method="POST" action="" name="<?php echo $APP_NAME;?>_form_reset" id="<?php echo $APP_NAME;?>_form_reset" ><input type="hidden" name="<?php echo $APP_NAME;?>_reset" value="true" /></form>
 
 
 </body>

@@ -1,6 +1,5 @@
 CREATE TABLE IF NOT EXISTS `socialslider_settings`(
 			 `idx` INT NOT NULL AUTO_INCREMENT,
-			  `seq` INT NOT NULL,
 			 `position` VARCHAR(15) NOT NULL,
 			 `title` TINYINT NOT NULL,
 			 `size` VARCHAR(15) NOT NULL,

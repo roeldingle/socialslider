@@ -1,16 +1,17 @@
+/* display none */
 .sdk_displaynone {display:none !important;}
 
 /* message box */
-.msg_info_box {margin:-28px 0 10px 0;border:1px solid #dad5b2;background:#fffce8;font-size:11px;color:#663;text-align:center;text-decoration:underline;line-height:normal}
-.msg_info_box p {margin:0;padding:8px 10px}
-.msg_info_box p span {color:#dc4e22;font-weight:bold;}
+.sdk_msg_info_box {margin:-28px 0 10px 0;border:1px solid #dad5b2;background:#fffce8;font-size:11px;color:#663;text-align:center;text-decoration:underline;line-height:normal}
+.sdk_msg_info_box p {margin:0;padding:8px 10px}
+.sdk_msg_info_box p span {color:#dc4e22;font-weight:bold;}
 
 .sdk_msg_suc_box {margin:-28px 0 10px 0;border:1px solid #dad5b2;background:#fffce8;font-weight:bold;font-size:11px;color:#693;text-align:center;line-height:normal}
 .sdk_msg_suc_box p {margin:0 !important;padding:8px 10px !important}
 .sdk_msg_suc_box p span {padding:2px 0 2px 23px;background:url([IMG]/builderLib/bg_suc_box.gif) no-repeat}
 
-#popup_wrap .msg_suc_box {margin:0 0 10px 0;}
-#popup_wrap .msg_warn_box {margin:0 0 10px 0;}
+#popup_wrap .sdk_msg_suc_box {margin:0 0 10px 0;}
+#popup_wrap .sdk_msg_warn_box {margin:0 0 10px 0;}
 
 .sdk_msg_warn_box {margin:-28px 0 10px 0;border:1px solid #f5cdb2;background:#ffebdf;font-size:11px;color:#c30;text-align:center;line-height:normal}
 .sdk_msg_warn_box p {margin:0 !important;padding:8px 10px !important}
@@ -137,6 +138,9 @@ a.sdk_add_link:link, a.sdk_add_link:visited {margin-left:10px;font-size:11px;col
 .sdk_ly_set select.combo {width:100%}
 .sdk_ly_set textarea {width:100%;height:50px;margin:9px 0 0 0;padding:10px 0}
 .sdk_ly_set .sdk_validate_wrap {margin:-20px 0 -80px 210px}
+
+.sdk_ly_set code {overflow:auto;display:block;height:124px;margin-bottom:27px;padding:15px;border:1px solid #abadb3;background:#fff;text-align:left;}
+.sdk_ly_set code xmp {font-size:11px}
 
 .sdk_ly_set a.clse {position:absolute;right:-1px;top:0;padding:0;background:url([IMG]/builderLib/ly_close_btn.gif) no-repeat !important;display:inline-block;width:34px;height:34px;font-size:0;}
 .sdk_ly_set a.clse:hover.clse, .ly_set a.clse:active.clse {text-decoration:none}

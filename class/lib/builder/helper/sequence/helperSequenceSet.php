@@ -43,7 +43,7 @@ class helperSequenceSet extends helperSequenceCommon
     public function insert($sModuleLabel = null, $iNextSequenceNo = null)
     {
         $sModuleCode = $this->_aModuleInfo['module_code'];
-        if (is_null($iNextSequenceNo)) $iNextSequenceNo = $this->_getNextSequenceNo();
+        if (is_null($iNextSequenceNo) || empty($iNextSequenceNo)) $iNextSequenceNo = $this->_getNextSequenceNo();
         if (!$sModuleLabel) $sModuleLabel = "New " . ucfirst(APP_ID) . " " . $iNextSequenceNo;
 
         $aData = array(

@@ -1,5 +1,8 @@
 var usbuilder = {
-		_aAppInfo : null,
+		_aAppInfo : {
+		    'app_id' : null,
+		    'seq' : null
+		},
 		_aBuilderUrlInfo : null,
         _setAppInfo: function(aAppInfo) {
             this._aAppInfo = aAppInfo;
@@ -84,6 +87,30 @@ var usbuilder = {
             
             return sUrl;
 		},
+		/**
+		getParam : function(sKey) {
+	        $sResultKey = this.getParamKey(sKey);
+            var results = new RegExp('[\\?&]' + $sResultKey + '=([^&#]*)').exec(window.location.href);
+            if (this._is_array(results)) {
+                return results[1] || 0;	        
+            } else {
+                return null;
+            }
+	    },
+	    getParamKey : function(sKey) {
+	        aAppInfo = this.getAppInfo();
+	        if (aAppInfo['class_type'] == 'front') {
+	            if (aAppInfo['seq']) {
+	                sResultKey = aAppInfo['app_id'].toLowerCase() + '_' + aAppInfo['seq'] + ':' + sKey;
+	            } else {
+	                sResultKey = aAppInfo['app_id'].toLowerCase() + ':' + sKey;
+	            }
+	        } else {
+	            sResultKey = sKey;
+	        }
+	        return sResultKey;
+	    },		
+		 */
 		_ucfirst : function(sText) {
 			first = sText.charAt(0);
 			rest = sText.substring(1,sText.length);
@@ -93,7 +120,7 @@ var usbuilder = {
 			return sText;
 		},
 		_is_array : function(input) {
-			return typeof(input)=='object'||(input instanceof Array);
+			return ((typeof(input)=='object')||(input instanceof Array))&&(input != null);
 		},
 		_is_int : function(input){
 		    return typeof(input)=='number'&&parseInt(input)==input;
