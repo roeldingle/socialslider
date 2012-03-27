@@ -15,13 +15,7 @@
 				<col width="180px" />
 				<col width="*" />
 			</colgroup>
-			<tr>
-				<td><label>App ID :</label></td>
-				<td>
-					<p class="plugin_title"><?php echo $APP_NAME;?></p><br />
-				</td>
 			
-			</tr>
 			<tr>
 				<td><label>Display position:</label></td>
 				<td class="display_position">
