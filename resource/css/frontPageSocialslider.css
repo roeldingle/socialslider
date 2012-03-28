@@ -9,15 +9,15 @@ position:absolute;
 }
 
 
-.socialslider_right ul li:hover{background:url(/_sdk/img/socialslider/trans_light.png);}
-.socialslider ul li:hover{background:url(/_sdk/img/socialslider/trans_light.png);}
+.socialslider_right ul li:hover{background:url([IMG]/trans_light.png);}
+.socialslider ul li:hover{background:url([IMG]/trans_light.png);}
 
 .socialslider_expand a{text-decoration:none;}
 .socialslider ul {padding:0;margin:5px 0 0}
 .socialslider ul li {list-style:none;padding:0;margin:0 0 5px}
 .socialslider {position:relative;padding:10px 5px 10px 0;border:1px solid #cbcfce;display:inline-block}
-.socialslider_container {width:auto;padding:3px 0 0 0;background:url(../_sdk/img/socialslider/border.gif) right top no-repeat;display:inline-block}
-.socialslider_expand {width:auto;padding:0 10px 3px 5px;background:url(../_sdk/img/socialslider/border.gif) right bottom no-repeat;display:inline-block}
+.socialslider_container {width:auto;padding:3px 0 0 0;background:url(..[IMG]/border.gif) right top no-repeat;display:inline-block}
+.socialslider_expand {width:auto;padding:0 10px 3px 5px;background:url(..[IMG]/border.gif) right bottom no-repeat;display:inline-block}
 
 
 
@@ -28,17 +28,17 @@ position:absolute;
 .socialslider_right ul {padding:0;margin:5px 0 0}
 .socialslider_right ul li {list-style:none;padding:0;margin:0 0 5px}
 .socialslider_right {position:relative;width:auto;padding:10px 0 10px 5px;border:1px solid #cbcfce;display:inline-block}
-.socialslider_right_container {width:auto;padding:3px 0 0 0;background:url(../_sdk/img/socialslider/border_right.gif) left top no-repeat;display:inline-block}
-.socialslider_right_expand {width:auto;padding:0 10px 3px 5px;background:url(../_sdk/img/socialslider/border_right.gif) left bottom no-repeat;display:inline-block}
+.socialslider_right_container {width:auto;padding:3px 0 0 0;background:url(..[IMG]/border_right.gif) left top no-repeat;display:inline-block}
+.socialslider_right_expand {width:auto;padding:0 10px 3px 5px;background:url(..[IMG]/border_right.gif) left bottom no-repeat;display:inline-block}
 .socialslider_right_expand .socialslider_slide {margin:5px 0 0;display:inline-block}
 .socialslider_right_expand .small_icon .socialslider_name {float:right;width:100px;margin-top:1px;font:11px Verdana, Arial, Sans-serif;color:#666;text-align:center;display:inline-block}
 .socialslider_right_expand .big_icon .socialslider_name {float:right;width:100px;margin-top:7px;font:11px Verdana, Arial, Sans-serif;color:#666;text-align:center;display:inline-block}
 .socialslider_right .btn_prev {position:absolute;top:0;width:100%;text-align:center;}
 .socialslider_right .btn_next {position:absolute;bottom:0;width:100%;text-align:center}
-.socialslider_right a.prev {width:15px;height:15px;background:url(../_sdk/img/socialslider/up2.png) left top no-repeat;display:inline-block}
-.socialslider_right a.next {width:15px;height:15px;background:url(../_sdk/img/socialslider/down2.png) left top no-repeat;display:inline-block}
-.socialslider_right a.prev:hover {width:15px;height:15px;background:url(../_sdk/img/socialslider/up.png) left top no-repeat;display:inline-block}
-.socialslider_right a.next:hover {width:15px;height:15px;background:url(../_sdk/img/socialslider/down.png) left top no-repeat;display:inline-block}
+.socialslider_right a.prev {width:15px;height:15px;background:url(..[IMG]/up2.png) left top no-repeat;display:inline-block}
+.socialslider_right a.next {width:15px;height:15px;background:url(..[IMG]/down2.png) left top no-repeat;display:inline-block}
+.socialslider_right a.prev:hover {width:15px;height:15px;background:url(..[IMG]/up.png) left top no-repeat;display:inline-block}
+.socialslider_right a.next:hover {width:15px;height:15px;background:url(..[IMG]/down.png) left top no-repeat;display:inline-block}
 
 
 .socialslider_expand .socialslider_slide {margin:5px 0 0;display:inline-block}
@@ -46,90 +46,90 @@ position:absolute;
 .socialslider_expand .big_icon .socialslider_name {float:left;width:100px;margin-top:7px;font:11px Verdana, Arial, Sans-serif;color:#666;text-align:center;display:inline-block}
 .socialslider .btn_prev {position:absolute;top:0;width:100%;text-align:center;}
 .socialslider .btn_next {position:absolute;bottom:0;width:100%;text-align:center}
-.socialslider a.prev {width:15px;height:15px;background:url(../_sdk/img/socialslider/up2.png) left top no-repeat;display:inline-block}
-.socialslider a.next {width:15px;height:15px;background:url(../_sdk/img/socialslider/down2.png) left top no-repeat;display:inline-block}
-.socialslider a.prev:hover {width:15px;height:15px;background:url(../_sdk/img/socialslider/up.png) left top no-repeat;display:inline-block}
-.socialslider a.next:hover {width:15px;height:15px;background:url(../_sdk/img/socialslider/down.png) left top no-repeat;display:inline-block}
+.socialslider a.prev {width:15px;height:15px;background:url(..[IMG]/up2.png) left top no-repeat;display:inline-block}
+.socialslider a.next {width:15px;height:15px;background:url(..[IMG]/down2.png) left top no-repeat;display:inline-block}
+.socialslider a.prev:hover {width:15px;height:15px;background:url(..[IMG]/up.png) left top no-repeat;display:inline-block}
+.socialslider a.next:hover {width:15px;height:15px;background:url(..[IMG]/down.png) left top no-repeat;display:inline-block}
 
 /* small icons*/
-.small_icon_blip {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left top no-repeat;display:inline-block}
-.small_icon_blipfm {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -20px no-repeat;display:inline-block}
-.small_icon_buzz {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -40px no-repeat;display:inline-block}
-.small_icon_delicious {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -60px no-repeat;display:inline-block}
-.small_icon_deviantart {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -80px no-repeat;display:inline-block}
-.small_icon_digg {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -100px no-repeat;display:inline-block}
-.small_icon_facebook {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -120px no-repeat;display:inline-block}
-.small_icon_flaker {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -140px no-repeat;display:inline-block}
-.small_icon_flickr {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -160px no-repeat;display:inline-block}
-.small_icon_formspringme {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -180px no-repeat;display:inline-block}
-.small_icon_friendconnect {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -200px no-repeat;display:inline-block}
-.small_icon_friendfeed {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -220px no-repeat;display:inline-block}
-.small_icon_goldenline {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -240px no-repeat;display:inline-block}
-.small_icon_googleplus {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -260px no-repeat;display:inline-block}
-.small_icon_grono {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -280px no-repeat;display:inline-block}
-.small_icon_imdb {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -300px no-repeat;display:inline-block}
-.small_icon_ising {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -320px no-repeat;display:inline-block}
-.small_icon_kciuk {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -340px no-repeat;display:inline-block}
-.small_icon_lastfm {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -360px no-repeat;display:inline-block}
-.small_icon_linkedin {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -380px no-repeat;display:inline-block}
-.small_icon_myspace {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -400px no-repeat;display:inline-block}
-.small_icon_naszaklasa {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -420px no-repeat;display:inline-block}
-.small_icon_networkedblogs {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -440px no-repeat;display:inline-block}
-.small_icon_newsletter {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -460px no-repeat;display:inline-block}
-.small_icon_orkut {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -480px no-repeat;display:inline-block}
-.small_icon_panoramio {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -500px no-repeat;display:inline-block}
-.small_icon_picasa {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -520px no-repeat;display:inline-block}
-.small_icon_rss {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -540px no-repeat;display:inline-block}
-.small_icon_sledzik {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -560px no-repeat;display:inline-block}
-.small_icon_soup {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -580px no-repeat;display:inline-block}
-.small_icon_spinacz {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -600px no-repeat;display:inline-block}
-.small_icon_tumblr {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -620px no-repeat;display:inline-block}
-.small_icon_twitter {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -640px no-repeat;display:inline-block}
-.small_icon_unifyer {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -660px no-repeat;display:inline-block}
-.small_icon_vimeo {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -680px no-repeat;display:inline-block}
-.small_icon_widget {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -700px no-repeat;display:inline-block}
-.small_icon_wykop {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -720px no-repeat;display:inline-block}
-.small_icon_youtube {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -740px no-repeat;display:inline-block}
+.small_icon_blip {width:20px;height:20px;margin:0 5px;background:url(/icons/icon_20x20.png) left top no-repeat;display:inline-block}
+.small_icon_blipfm {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -20px no-repeat;display:inline-block}
+.small_icon_buzz {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -40px no-repeat;display:inline-block}
+.small_icon_delicious {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -60px no-repeat;display:inline-block}
+.small_icon_deviantart {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -80px no-repeat;display:inline-block}
+.small_icon_digg {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -100px no-repeat;display:inline-block}
+.small_icon_facebook {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -120px no-repeat;display:inline-block}
+.small_icon_flaker {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -140px no-repeat;display:inline-block}
+.small_icon_flickr {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -160px no-repeat;display:inline-block}
+.small_icon_formspringme {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -180px no-repeat;display:inline-block}
+.small_icon_friendconnect {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -200px no-repeat;display:inline-block}
+.small_icon_friendfeed {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -220px no-repeat;display:inline-block}
+.small_icon_goldenline {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -240px no-repeat;display:inline-block}
+.small_icon_googleplus {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -260px no-repeat;display:inline-block}
+.small_icon_grono {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -280px no-repeat;display:inline-block}
+.small_icon_imdb {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -300px no-repeat;display:inline-block}
+.small_icon_ising {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -320px no-repeat;display:inline-block}
+.small_icon_kciuk {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -340px no-repeat;display:inline-block}
+.small_icon_lastfm {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -360px no-repeat;display:inline-block}
+.small_icon_linkedin {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -380px no-repeat;display:inline-block}
+.small_icon_myspace {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -400px no-repeat;display:inline-block}
+.small_icon_naszaklasa {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -420px no-repeat;display:inline-block}
+.small_icon_networkedblogs {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -440px no-repeat;display:inline-block}
+.small_icon_newsletter {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -460px no-repeat;display:inline-block}
+.small_icon_orkut {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -480px no-repeat;display:inline-block}
+.small_icon_panoramio {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -500px no-repeat;display:inline-block}
+.small_icon_picasa {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -520px no-repeat;display:inline-block}
+.small_icon_rss {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -540px no-repeat;display:inline-block}
+.small_icon_sledzik {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -560px no-repeat;display:inline-block}
+.small_icon_soup {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -580px no-repeat;display:inline-block}
+.small_icon_spinacz {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -600px no-repeat;display:inline-block}
+.small_icon_tumblr {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -620px no-repeat;display:inline-block}
+.small_icon_twitter {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -640px no-repeat;display:inline-block}
+.small_icon_unifyer {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -660px no-repeat;display:inline-block}
+.small_icon_vimeo {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -680px no-repeat;display:inline-block}
+.small_icon_widget {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -700px no-repeat;display:inline-block}
+.small_icon_wykop {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -720px no-repeat;display:inline-block}
+.small_icon_youtube {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -740px no-repeat;display:inline-block}
 
 
 /* big icons*/
-.big_icon_blip {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left top no-repeat;display:inline-block}
-.big_icon_blipfm {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -32px no-repeat;display:inline-block}
-.big_icon_buzz {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -64px no-repeat;display:inline-block}
-.big_icon_delicious {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -96px no-repeat;display:inline-block}
-.big_icon_deviantart {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -128px no-repeat;display:inline-block}
-.big_icon_digg {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -160px no-repeat;display:inline-block}
-.big_icon_facebook {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -192px no-repeat;display:inline-block}
-.big_icon_flaker {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -224px no-repeat;display:inline-block}
-.big_icon_flickr {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -256px no-repeat;display:inline-block}
-.big_icon_formspringme {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -288px no-repeat;display:inline-block}
-.big_icon_friendconnect {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -320px no-repeat;display:inline-block}
-.big_icon_friendfeed {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -352px no-repeat;display:inline-block}
-.big_icon_goldenline {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -384px no-repeat;display:inline-block}
-.big_icon_googleplus {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -416px no-repeat;display:inline-block}
-.big_icon_grono {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -448px no-repeat;display:inline-block}
-.big_icon_imdb {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -480px no-repeat;display:inline-block}
-.big_icon_ising {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -512px no-repeat;display:inline-block}
-.big_icon_kciuk {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -544px no-repeat;display:inline-block}
-.big_icon_lastfm {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -576px no-repeat;display:inline-block}
-.big_icon_linkedin {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -608px no-repeat;display:inline-block}
-.big_icon_myspace {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -640px no-repeat;display:inline-block}
-.big_icon_naszaklasa {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -672px no-repeat;display:inline-block}
-.big_icon_networkedblogs {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -704px no-repeat;display:inline-block}
-.big_icon_newsletter {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -736px no-repeat;display:inline-block}
-.big_icon_orkut {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -768px no-repeat;display:inline-block}
-.big_icon_panoramio {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -800px no-repeat;display:inline-block}
-.big_icon_picasa {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -832px no-repeat;display:inline-block}
-.big_icon_rss {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -864px no-repeat;display:inline-block}
-.big_icon_sledzik {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -896px no-repeat;display:inline-block}
-.big_icon_soup {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -928px no-repeat;display:inline-block}
-.big_icon_spinacz {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -960px no-repeat;display:inline-block}
-.big_icon_tumblr {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -992px no-repeat;display:inline-block}
-.big_icon_twitter {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -1024px no-repeat;display:inline-block}
-.big_icon_unifyer {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -1056px no-repeat;display:inline-block}
-.big_icon_vimeo {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -1088px no-repeat;display:inline-block}
-.big_icon_widget {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -1120px no-repeat;display:inline-block}
-.big_icon_wykop {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -1152px no-repeat;display:inline-block}
-.big_icon_youtube {width:32px;height:32px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_32x32.png) left -1184px no-repeat;display:inline-block}
+.big_icon_blip {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left top no-repeat;display:inline-block}
+.big_icon_blipfm {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -32px no-repeat;display:inline-block}
+.big_icon_buzz {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -64px no-repeat;display:inline-block}
+.big_icon_delicious {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -96px no-repeat;display:inline-block}
+.big_icon_deviantart {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -128px no-repeat;display:inline-block}
+.big_icon_digg {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -160px no-repeat;display:inline-block}
+.big_icon_facebook {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -192px no-repeat;display:inline-block}
+.big_icon_flaker {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -224px no-repeat;display:inline-block}
+.big_icon_flickr {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -256px no-repeat;display:inline-block}
+.big_icon_formspringme {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -288px no-repeat;display:inline-block}
+.big_icon_friendconnect {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -320px no-repeat;display:inline-block}
+.big_icon_friendfeed {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -352px no-repeat;display:inline-block}
+.big_icon_goldenline {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -384px no-repeat;display:inline-block}
+.big_icon_googleplus {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -416px no-repeat;display:inline-block}
+.big_icon_grono {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -448px no-repeat;display:inline-block}
+.big_icon_imdb {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -480px no-repeat;display:inline-block}
+.big_icon_ising {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -512px no-repeat;display:inline-block}
+.big_icon_kciuk {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -544px no-repeat;display:inline-block}
+.big_icon_lastfm {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -576px no-repeat;display:inline-block}
+.big_icon_linkedin {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -608px no-repeat;display:inline-block}
+.big_icon_myspace {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -640px no-repeat;display:inline-block}
+.big_icon_naszaklasa {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -672px no-repeat;display:inline-block}
+.big_icon_networkedblogs {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -704px no-repeat;display:inline-block}
+.big_icon_newsletter {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -736px no-repeat;display:inline-block}
+.big_icon_orkut {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -768px no-repeat;display:inline-block}
+.big_icon_panoramio {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -800px no-repeat;display:inline-block}
+.big_icon_picasa {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -832px no-repeat;display:inline-block}
+.big_icon_rss {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -864px no-repeat;display:inline-block}
+.big_icon_sledzik {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -896px no-repeat;display:inline-block}
+.big_icon_soup {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -928px no-repeat;display:inline-block}
+.big_icon_spinacz {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -960px no-repeat;display:inline-block}
+.big_icon_tumblr {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -992px no-repeat;display:inline-block}
+.big_icon_twitter {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -1024px no-repeat;display:inline-block}
+.big_icon_unifyer {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -1056px no-repeat;display:inline-block}
+.big_icon_vimeo {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -1088px no-repeat;display:inline-block}
+.big_icon_widget {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -1120px no-repeat;display:inline-block}
+.big_icon_wykop {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -1152px no-repeat;display:inline-block}
+.big_icon_youtube {width:32px;height:32px;margin:0 5px;background:url([IMG]/icons/icon_32x32.png) left -1184px no-repeat;display:inline-block}
 
 

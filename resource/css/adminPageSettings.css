@@ -5,7 +5,7 @@
 
 .icon_table input[type="text"] {width:100%}
 
-input.btn_apply {width:103px;height:25px !important;border:none;display:inline-block;text-align:center;padding:4px 0 5px 0;background:#000 url(/_sdk/img/socialslider/bg_btn_input.gif) repeat-x;font-weight:bold;font-size:13px;color:#fff;text-decoration:none !important;vertical-align:middle}
+input.btn_apply {width:103px;height:25px !important;border:none;display:inline-block;text-align:center;padding:4px 0 5px 0;background:#000 url([IMG]/bg_btn_input.gif) repeat-x;font-weight:bold;font-size:13px;color:#fff;text-decoration:none !important;vertical-align:middle}
 .custom_image {width:25px;height:25px}
 
 #socialslider_settings td {margin-bottom:10px;padding:4px;vertical-align:top}
@@ -28,44 +28,44 @@ input.btn_apply {width:103px;height:25px !important;border:none;display:inline-b
 
 /* icons */
 
-.icon_Blip {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left top no-repeat;display:inline-block}
-.icon_Blipfm {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -20px no-repeat;display:inline-block}
-.icon_Buzz {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -40px no-repeat;display:inline-block}
-.icon_Delicious {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -60px no-repeat;display:inline-block}
-.icon_Deviantart {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -80px no-repeat;display:inline-block}
-.icon_Digg {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -100px no-repeat;display:inline-block}
-.icon_Facebook {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -120px no-repeat;display:inline-block}
-.icon_Flaker {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -140px no-repeat;display:inline-block}
-.icon_Flickr {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -160px no-repeat;display:inline-block}
-.icon_Formspringme {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -180px no-repeat;display:inline-block}
-.icon_Friendconnect {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -200px no-repeat;display:inline-block}
-.icon_Friendfeed {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -220px no-repeat;display:inline-block}
-.icon_Goldenline {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -240px no-repeat;display:inline-block}
-.icon_Googleplus {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -260px no-repeat;display:inline-block}
-.icon_Grono {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -280px no-repeat;display:inline-block}
-.icon_Imdb {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -300px no-repeat;display:inline-block}
-.icon_Ising {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -320px no-repeat;display:inline-block}
-.icon_Kciuk {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -340px no-repeat;display:inline-block}
-.icon_Lastfm {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -360px no-repeat;display:inline-block}
-.icon_Linkedin {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -380px no-repeat;display:inline-block}
-.icon_Myspace {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -400px no-repeat;display:inline-block}
-.icon_Naszaklasa {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -420px no-repeat;display:inline-block}
-.icon_Networkedblogs {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -440px no-repeat;display:inline-block}
-.icon_Newsletter {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -460px no-repeat;display:inline-block}
-.icon_Orkut {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -480px no-repeat;display:inline-block}
-.icon_Panoramio {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -500px no-repeat;display:inline-block}
-.icon_Picasa {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -520px no-repeat;display:inline-block}
-.icon_Rss {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -540px no-repeat;display:inline-block}
-.icon_Sledzik {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -560px no-repeat;display:inline-block}
-.icon_Soup {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -580px no-repeat;display:inline-block}
-.icon_Spinacz {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -600px no-repeat;display:inline-block}
-.icon_Tumblr {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -620px no-repeat;display:inline-block}
-.icon_Twitter {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -640px no-repeat;display:inline-block}
-.icon_Unifyer {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -660px no-repeat;display:inline-block}
-.icon_Vimeo {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -680px no-repeat;display:inline-block}
-.icon_Widget {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -700px no-repeat;display:inline-block}
-.icon_Wykop {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -720px no-repeat;display:inline-block}
-.icon_Youtube {width:20px;height:20px;margin:0 5px;background:url(/_sdk/img/socialslider/icons/icon_20x20.png) left -740px no-repeat;display:inline-block}
+.icon_Blip {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left top no-repeat;display:inline-block}
+.icon_Blipfm {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -20px no-repeat;display:inline-block}
+.icon_Buzz {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -40px no-repeat;display:inline-block}
+.icon_Delicious {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -60px no-repeat;display:inline-block}
+.icon_Deviantart {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -80px no-repeat;display:inline-block}
+.icon_Digg {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -100px no-repeat;display:inline-block}
+.icon_Facebook {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -120px no-repeat;display:inline-block}
+.icon_Flaker {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -140px no-repeat;display:inline-block}
+.icon_Flickr {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -160px no-repeat;display:inline-block}
+.icon_Formspringme {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -180px no-repeat;display:inline-block}
+.icon_Friendconnect {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -200px no-repeat;display:inline-block}
+.icon_Friendfeed {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -220px no-repeat;display:inline-block}
+.icon_Goldenline {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -240px no-repeat;display:inline-block}
+.icon_Googleplus {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -260px no-repeat;display:inline-block}
+.icon_Grono {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -280px no-repeat;display:inline-block}
+.icon_Imdb {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -300px no-repeat;display:inline-block}
+.icon_Ising {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -320px no-repeat;display:inline-block}
+.icon_Kciuk {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -340px no-repeat;display:inline-block}
+.icon_Lastfm {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -360px no-repeat;display:inline-block}
+.icon_Linkedin {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -380px no-repeat;display:inline-block}
+.icon_Myspace {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -400px no-repeat;display:inline-block}
+.icon_Naszaklasa {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -420px no-repeat;display:inline-block}
+.icon_Networkedblogs {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -440px no-repeat;display:inline-block}
+.icon_Newsletter {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -460px no-repeat;display:inline-block}
+.icon_Orkut {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -480px no-repeat;display:inline-block}
+.icon_Panoramio {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -500px no-repeat;display:inline-block}
+.icon_Picasa {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -520px no-repeat;display:inline-block}
+.icon_Rss {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -540px no-repeat;display:inline-block}
+.icon_Sledzik {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -560px no-repeat;display:inline-block}
+.icon_Soup {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -580px no-repeat;display:inline-block}
+.icon_Spinacz {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -600px no-repeat;display:inline-block}
+.icon_Tumblr {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -620px no-repeat;display:inline-block}
+.icon_Twitter {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -640px no-repeat;display:inline-block}
+.icon_Unifyer {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -660px no-repeat;display:inline-block}
+.icon_Vimeo {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -680px no-repeat;display:inline-block}
+.icon_Widget {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -700px no-repeat;display:inline-block}
+.icon_Wykop {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -720px no-repeat;display:inline-block}
+.icon_Youtube {width:20px;height:20px;margin:0 5px;background:url([IMG]/icons/icon_20x20.png) left -740px no-repeat;display:inline-block}
 
 
 .socialslider_readonly{background:#DAE4E4;}
