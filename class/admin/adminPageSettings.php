@@ -9,7 +9,7 @@ class adminPageSettings extends Controller_Admin
     require_once('builder/builderInterface.php');
 	usbuilder()->init($this, $aArgs);
 
- 	/*assign objects*/
+ 	/*assign objects*/ 
     $this->oGet = new modelGet;
     
 	$this->display($aArgs);
